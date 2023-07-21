@@ -45,7 +45,7 @@ body{
     font-size: large;
 }
 .card>.left_side>ul>li{
-    list-style-image: url('/assets/images/icon-list.svg');
+    list-style-image: url('./assets/images/icon-list.svg');
     font-size: large;
     margin: .5em 0 .5em 0;
     padding-left: .5em;
