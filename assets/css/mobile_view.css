@@ -52,7 +52,7 @@
         left: 0;
         width: 100%;
         height: 50%;
-        background-image: url('/assets/images/illustration-sign-up-mobile.svg');
+        background-image: url('assets/images/illustration-sign-up-mobile.svg');
         background-origin: border-box;
         background-repeat: no-repeat;
         background-size: contain;
