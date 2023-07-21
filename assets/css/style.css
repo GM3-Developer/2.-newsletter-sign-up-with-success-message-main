@@ -1,5 +1,6 @@
 /* FONT */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
 *{
     font-family: 'Roboto';
 }
@@ -14,6 +15,7 @@ body{
 }
 /* Card */
 .card{
+    scale: .9;
     display: flex;
     position: relative;
     padding: 1em;
@@ -22,14 +24,13 @@ body{
     height: 60vh;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.126);
     box-sizing: border-box;
-    border-radius: 25px;
+    border-radius: 30px;
     background-color: hsl(0, 0%, 100%);
 }
  /* Card > Left Side*/
  .card>.left_side{
     margin: 0;
     padding: 2.6em;
-    position: relative;
     width: 60%;
     height: 100%;
     box-sizing: border-box;
@@ -46,51 +47,146 @@ body{
 .card>.left_side>ul>li{
     list-style-image: url('/assets/images/icon-list.svg');
     font-size: large;
-    margin: 1em 0 1em 0;
+    margin: .5em 0 .5em 0;
     padding-left: .5em;
 }
-.card>.left_side>form>label{
-    margin: 3em 0 .5em 0;
+.card>.left_side{
+    padding-top: 1em;
+}
+.card>.left_side>label{
+    margin: 2em 0 .5em 0;
     display: block;
     font-weight: 900;
 }
-.card>.left_side>form>#email{
+/* Input */
+.card>.left_side>#email{
     padding: 1.5em;
     width: 100%;
     border: 1px solid rgba(0, 0, 0, 0.356);
     border-radius: 10px;
     outline: none;
     box-sizing: border-box;
+    transition: border .2s;
+    background-color: initial;
 }
-.card>.left_side>form>#email::placeholder{
+.card>.left_side>#email::placeholder{
     font-size: large;
 }
+.card>.left_side>#email:focus{
+    border: 1px solid rgba(0, 0, 0, 1);
+}
+.card>.left_side>label::after {
+    content: attr(data-content);
+    color: red;
+    position: relative;
+    float: right;
+}
+
 /* Submit button */
-.card>.left_side>form>input[type="submit"]{
-    font-size: large;
+.card>.left_side>.submit{
+    position: relative;
+    z-index: 1;
+    font-size: medium;
     font-weight: 800;
     align-items: center;
     text-align: center;
-    padding: .8em;
-    margin-top: 2em;
+    padding: 1em;
+    margin-top: 1.4em;
     width: 100%;
     border: none;
     border-radius: 10px;
     box-sizing: border-box;
-    background-color: hsl(234, 29%, 20%);
+    background: hsl(235, 18%, 26%);
     color: hsl(0, 0%, 100%);
+    cursor: pointer;
+}
+/*
+Falta por reglar el hover. No funciona bien la transición de background "gradient"
+*/
+.card>.left_side>.submit::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(270deg, hsl(4, 100%, 67%) 0%, hsl(336, 36%, 54%) 100%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: -1;
+}
+
+.card>.left_side>.submit:hover::after{
+    opacity: 1;
 }
 
 /* Card > Right Side */
 .card>.right_side{
     margin: 0;
     padding: 0;
-    position: relative;
     float: right;
     width: 45%;
     height: auto;
     box-sizing: border-box;
 }
+
+/* Modal Card */
+.modal{
+    display: none;
+    /* display: block; */
+    position: absolute;
+    background-color: white;
+    width: 35vw;
+    height: 50vh;
+    border-radius: 30px;
+    padding: 3em;
+    box-sizing: border-box;
+    
+}
+.modal>.header>.image{
+    padding-bottom: 2em;
+}
+.modal>.header>.title{
+    font-size: 59px;
+    font-weight: 900;
+}
+.modal>p{
+    font-weight: 500;
+}
+.modal>#dismiss{
+    position: relative;
+    color: hsl(0, 0%, 100%);
+    padding: 1.3em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 100%;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    background-color: hsl(235, 18%, 26%);
+    z-index: 1;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.modal>#dismiss::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(270deg, hsl(4, 100%, 67%) 0%, hsl(336, 36%, 54%) 100%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: -1;
+}
+.modal>#dismiss:hover::after{
+    opacity: 1;
+}
+
+/*Horizontal Mode (Desktop)*/
 @media only screen and (orientation:landscape){
     .right_side{
         background-image: url('/assets/images/illustration-sign-up-desktop.svg');
@@ -100,18 +196,75 @@ body{
         background-repeat: no-repeat;
         box-sizing: border-box;
     }
-}
-@media only screen and (orientation:portrait){
-    .right_side{
-        width: 100%;
-        height: 100%;
-        background-image: url('/assets/images/illustration-sign-up-mobile.svg');
-        background-origin: border-box;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
+
+    /*Resolution zone*/
+    @media only screen and (max-width:1370px){
+        /*Main Card*/
+        .card>.left_side>h1{
+            font-size: 65px;
+        }
+        .card>.left_side>p{
+            font-size: medium;
+        }
+        .card>.left_side>ul>li{
+            font-size: medium;
+        }
+
+        /*Modal Card*/
+        .modal{
+            padding: 2.1em;
+        }
+        .modal>.header>.title{
+            font-size: 50px;
+        }
+        .modal>*{
+            scale: .78;
+        }
+    }
+
+    @media only screen and (max-width:1200px){
+        /*Main Card*/
+        .card>.left_side>h1{
+            font-size: 54px;
+        }
+        .card>.left_side>p{
+            font-size: small;
+        }
+        .card>.left_side>ul>li{
+            font-size: small;
+        }
+
+        /*Modal Card*/
+        .modal{
+            padding: 1.6em;
+        }
+        .modal>*{
+            scale: .8;
+        }
+    }
+
+    @media only screen and (max-width:1000px){
+        /*Main Card*/
+        .card>.left_side>h1{
+            font-size: 43px;
+        }
+        .card>.left_side>p{
+            font-size: x-small;
+        }
+        .card>.left_side>ul>li{
+            font-size: x-small;
+        }
+
+        /*Modal Card*/
+        .modal{
+            padding: 1.6em;
+        }
+        .modal>*{
+            scale: .8;
+        }
     }
 }
+
 
 .attribution{
     position: fixed;
@@ -120,11 +273,9 @@ body{
 .attribution:not(a){
     color: hsl(0, 0%, 100%);
 }
-.attribution>a{
+.attribution>a,
+.attribution>a:link,
+.attribution>a:active,
+.attribution>a:visited{
     color: hsl(4, 100%, 67%);
-}
-
-.modal{
-    display: none;
-    position: fixed;
 }

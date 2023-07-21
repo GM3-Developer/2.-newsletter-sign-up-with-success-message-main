@@ -6,6 +6,8 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/mobile_view.css">
+  <script src="assets/js/script.js"></script>
   
   <title>Frontend Mentor | Newsletter sign-up form with success message</title>
 
@@ -18,7 +20,7 @@
 <body>
 
   <!-- Sign-up form start -->
-  <div class="card">
+  <div class="card" id="card">
     <!-- Left Side -->
     <div class="left_side">
       <h1>
@@ -40,11 +42,10 @@
         </li>
       </ul>
     
-      <form action="">
-        <label for="email">Email address</label>
-        <input type="text" name="email" id="email" placeholder="email@company.com">
-        <input type="submit" value="Subscribe to monthly newsletter">
-      </form>
+      <label id="lemail" for="email">Email address</label>
+      <input type="text" name="email" id="email" placeholder="email@company.com">
+      <div id="submit" class="submit">Subscribe to monthly newsletter</div>
+      
     </div>
   
     <!-- Right Side-->
@@ -57,12 +58,21 @@
   <!-- Success message start -->
 
   <div class="modal" id="modal">
-    Thanks for subscribing!
-  
-    A confirmation email has been sent to ash@loremcompany.com. 
-    Please open it and click the button inside to confirm your subscription.
-  
-    Dismiss message
+    <div class="header">
+      <div class="image">
+        <img src="assets/images/icon-success.svg" alt="">
+      </div>
+      <div class="title">
+        Thanks for subscribing!
+      </div>
+    </div>
+    <p>
+      A confirmation email has been sent to <b>ash@loremcompany.com</b>. 
+      Please open it and click the button inside to confirm your subscription.
+    </p>
+    <div id="dismiss">
+      Dismiss message
+    </div>
   </div>
 
 
