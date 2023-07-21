@@ -189,7 +189,7 @@ Falta por reglar el hover. No funciona bien la transición de background "gradie
 /*Horizontal Mode (Desktop)*/
 @media only screen and (orientation:landscape){
     .right_side{
-        background-image: url('/assets/images/illustration-sign-up-desktop.svg');
+        background-image: url('assets/images/illustration-sign-up-desktop.svg');
         background-size: contain;
         background-clip: border-box;
         background-position: center;
