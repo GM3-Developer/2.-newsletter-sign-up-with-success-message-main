@@ -45,7 +45,7 @@ body{
     font-size: large;
 }
 .card>.left_side>ul>li{
-    list-style-image: url('./assets/images/icon-list.svg');
+    list-style-image: url('../images/icon-list.svg');
     font-size: large;
     margin: .5em 0 .5em 0;
     padding-left: .5em;
@@ -189,7 +189,7 @@ Falta por reglar el hover. No funciona bien la transición de background "gradie
 /*Horizontal Mode (Desktop)*/
 @media only screen and (orientation:landscape){
     .right_side{
-        background-image: url('assets/images/illustration-sign-up-desktop.svg');
+        background-image: url('../images/illustration-sign-up-desktop.svg');
         background-size: contain;
         background-clip: border-box;
         background-position: center;
